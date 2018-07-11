@@ -6,6 +6,7 @@
 
 // for convenience
 using json = nlohmann::json;
+using namespace std;
 
 // For converting back and forth between radians and degrees.
 constexpr double pi() { return M_PI; }
@@ -34,7 +35,20 @@ int main()
 
   PID pid;
   // TODO: Initialize the pid variable.
-  pid.Init(-0.04,0.0,-0.02);
+  // The initial values are based on manual tuning.
+  double Kp_s = 0.1;
+  double Ki_s = 0.0;
+  double Kd_s = 0.5;
+
+  //override initial values via environmental variables
+  const char* env_var = getenv("STEER_INIT_PID");
+  if (env_var != NULL) {
+    sscanf(env_var, "%lf %lf %lf", &Kp_s, &Ki_s, &Kd_s);
+  }
+  cout << "Initializing steering angle PID controller. P:";
+  cout << Kp_s << " I:" << Ki_s << " D:" << Kd_s << endl;
+
+  pid.Init(Kp_s ,Ki_s, Kd_s);
 
   h.onMessage([&pid](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, uWS::OpCode opCode) {
     // "42" at the start of the message means there's a websocket message event.
@@ -51,7 +65,7 @@ int main()
           double cte = std::stod(j[1]["cte"].get<std::string>());
           double speed = std::stod(j[1]["speed"].get<std::string>());
           double angle = std::stod(j[1]["steering_angle"].get<std::string>());
-          double steer_value;
+          double steer_value = 0.0;
           static double throttle = 0.3;
           /*
           * TODO: Calcuate steering value here, remember the steering value is
@@ -60,15 +74,15 @@ int main()
           * another PID controller to control the speed!
           */
           pid.UpdateError(cte);
-          steer_value = pid.TotalError();
 
-          if (speed > 20) {
-            throttle *= 0.9;
-          } else {
-            throttle *= 1.1;
-          }
+          // The +ve cte implies that the car is too far to the right of the center.
+          // To reduce CTE, we need to steer left. -ve steering_value implies left steer.
+          // PID controller assumes +ve Kpid constants so lets multiply the total error returned
+          // by the controller with -1.0 to steer to the left.
+          steer_value = -1 * pid.TotalError();
+
           // DEBUG
-          std::cout << "CTE: " << cte << " Steering Value: " << steer_value << " Angle:"<< angle << std::endl;
+          std::cout << "CTE: " << cte << " Steer: " << steer_value << " Angle:"<< angle << std::endl;
 
           // Update PID error
           pid.UpdateError(cte);

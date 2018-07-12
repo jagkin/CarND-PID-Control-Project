@@ -36,11 +36,11 @@ int main()
   PID pid;
   // TODO: Initialize the pid variable.
   // The initial values are based on manual tuning.
-  double Kp_s = 0.129139;
-  double Ki_s = 0.0021;
-  double Kd_s = 0.767874;
+  double Kp_s = 0.146233;
+  double Ki_s = 0.008478;
+  double Kd_s = 0.816367;
   //Kp:0.129139 Ki:0.021 Kd:0.767874
-
+  //Kp:0.146233 Ki:0.008478 Kd:0.816367
   //override initial values via environmental variables
   const char* env_var = getenv("STEER_INIT_PID");
   if (env_var != NULL) {

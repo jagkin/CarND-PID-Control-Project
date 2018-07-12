@@ -22,13 +22,13 @@ PID::PID() {
   // Twidlle stuff
   twiddle = false;
   twid_state = NOT_STARTED;
-  dK.push_back(0.01);  // dKp
-  dK.push_back(0.002);  // dKi
-  dK.push_back(0.08);  // dKd
+  dK.push_back(0.0);  // dKp
+  dK.push_back(0.0);  // dKi
+  dK.push_back(0.0);  // dKd
   //Kp:0.129139 Ki:0.021 Kd:0.767874
+  //Kp:0.146233 Ki:0.008478 Kd:0.816367
 
   best_error = numeric_limits<double>::max();
-  thresh = (dK[0] + dK[1] + dK[2])*0.05;
   num_updates = 0;
   n_runs_since_twiddle = 0;
   cur_error = 0;
@@ -43,6 +43,10 @@ void PID::Init(double Kp, double Ki, double Kd) {
   K[0] = Kp;
   K[1] = Ki;
   K[2] = Kd;
+  dK[0] = Kp*0.2;
+  dK[1] = Ki*0.2;
+  dK[2] = Kd*0.2;
+  thresh = (dK[0] + dK[1] + dK[2])*0.05;
 }
 
 void PID::Twiddle(double cur_error) {

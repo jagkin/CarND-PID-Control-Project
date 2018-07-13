@@ -36,11 +36,9 @@ int main()
   PID pid;
   // TODO: Initialize the pid variable.
   // The initial values are based on manual tuning.
-  double Kp_s = 0.146233;
-  double Ki_s = 0.008478;
-  double Kd_s = 0.816367;
-  //Kp:0.129139 Ki:0.021 Kd:0.767874
-  //Kp:0.146233 Ki:0.008478 Kd:0.816367
+  double Kp_s = 0.1;
+  double Ki_s = 0.0005;
+  double Kd_s = 0.4;
   //override initial values via environmental variables
   const char* env_var = getenv("STEER_INIT_PID");
   if (env_var != NULL) {
@@ -82,9 +80,12 @@ int main()
           // by the controller with -1.0 to steer to the left.
           steer_value = -1 * pid.TotalError();
 
-          // DEBUG
-          //std::cout << "CTE: " << cte << " Steer: " << steer_value << " Angle:"<< angle << std::endl;
-
+#if DEBUG_PRINTS
+          static int num_updates = 0;
+          num_updates++;
+          std::cout << "CTE: " << cte << " Steer: " << steer_value << " Angle:"<< angle << "num_update:" << num_updates << "\r" << std::flush;
+          //std::cout << msg << std::endl;
+#endif
           // Update PID error
           pid.UpdateError(cte);
 
@@ -92,7 +93,6 @@ int main()
           msgJson["steering_angle"] = steer_value;
           msgJson["throttle"] = throttle;
           auto msg = "42[\"steer\"," + msgJson.dump() + "]";
-          //std::cout << msg << std::endl;
           ws.send(msg.data(), msg.length(), uWS::OpCode::TEXT);
         }
       } else {

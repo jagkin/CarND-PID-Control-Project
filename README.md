@@ -4,7 +4,7 @@ Here the objective is to implement the PID (Proportional Integral and Differenti
 ## Rubrik points
 ### Your code should compile.
 The code can be compiled without error using cmake and make.
-
+```
 jagkin@jagkin-Inspiron-N5050:~/Projects/Udacity_ND/CarND-PID-Control-Project/build$ make clean && make
 [ 33%] Building CXX object CMakeFiles/pid.dir/src/PID.cpp.o
 /home/jagkin/Projects/Udacity_ND/CarND-PID-Control-Project/src/PID.cpp: In member function ‘void PID::Optimizer(double)’:
@@ -18,7 +18,7 @@ jagkin@jagkin-Inspiron-N5050:~/Projects/Udacity_ND/CarND-PID-Control-Project/bui
                   ^
 [100%] Linking CXX executable pid
 [100%] Built target pid
-
+```
 ### The PID procedure follows what was taught in the lessons.
 The controller and optimizer (using twiddle) implementation in src/PID.cpp follows the procedure taught in lessons.
 
@@ -37,6 +37,18 @@ I started with Kp  +0.5 (and Ki = Kd = 0) as the simulator starts with vehicle o
 I then held Kp at 0.1 and played around with Kd to counter the effect of Kp and arrived at Kd = 0.5 to keep the car on the track for one lap. I then played around with Ki (starting with 0.1 and then 0.01 and the 0.0001 and then 0.0005 and finally 0.0006) and chose the value which seemed to keep the car around the center most f the time.
 
 #### Steering angle controller
+Initial Kp = 3.0 and Kd = 0.1 were choosen again by trial and error by choosing values which did not make the car go off the track while keeping the speed high enough.
+
+#### Tuning using twiddle
+Twiddle algorithm was implemented to tune the parameters further. The function Optimizer() in src/PID.cpp implements the algorithm. It chooses dKp/dKi/dKd to be about 30% of initial Kp/Ki/Kd and then tweaks them to make the error (actually absolute cte) to lowest value. For each step, the algoritm let to run around a lap without collecting any error info (to allow it to reach steady state) and then errors are collected for a lap and compared against best error so far.
+The threshold is set to 5% of sum of dKs.
+
+Both steering angle and throttle controller were tuned simultaneously. 
+logs/final_tuning.log contains the console output during tuning.
+
+
+### The vehicle must successfully drive a lap around the track.
+The vehicle completed several laps around the track.
 
 ---
 

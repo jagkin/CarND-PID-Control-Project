@@ -1,0 +1,1189 @@
+jagkin@jagkin-Inspiron-N5050:~/Projects/Udacity_ND/CarND-PID-Control-Project/build$ make clean && make && ./pid 
+Scanning dependencies of target pid
+[ 33%] Building CXX object CMakeFiles/pid.dir/src/PID.cpp.o
+/home/jagkin/Projects/Udacity_ND/CarND-PID-Control-Project/src/PID.cpp: In member function ‘void PID::Optimizer(double)’:
+/home/jagkin/Projects/Udacity_ND/CarND-PID-Control-Project/src/PID.cpp:210:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (index == (dK.size() - 1))
+               ^
+[ 66%] Building CXX object CMakeFiles/pid.dir/src/main.cpp.o
+/home/jagkin/Projects/Udacity_ND/CarND-PID-Control-Project/src/main.cpp: In lambda function:
+/home/jagkin/Projects/Udacity_ND/CarND-PID-Control-Project/src/main.cpp:87:18: warning: unused variable ‘speed’ [-Wunused-variable]
+           double speed = std::stod(j[1]["speed"].get<std::string>());
+                  ^
+/home/jagkin/Projects/Udacity_ND/CarND-PID-Control-Project/src/main.cpp:88:18: warning: unused variable ‘angle’ [-Wunused-variable]
+           double angle = std::stod(j[1]["steering_angle"].get<std::string>());
+                  ^
+[100%] Linking CXX executable pid
+[100%] Built target pid
+Initializing steering angle PID controller.
+P:0.1 I:0.0006 D:0.5
+Initializing throttle PID controller.
+P:3 I:0 D:0.1
+Listening to port 4567
+Connected!!!
+Optimizer: Twiddling start
+ cur_error:0.20892
+Twiddle#: 1 index:0 state:ADD
+Kp:0.12 Ki:0.0006 Kd:0.5
+dKp:0.02 dKi:0.00012 dKd:0.1
+Optimizer: Twiddling start
+ cur_error:0.20892
+Twiddle#: 1 index:0 state:ADD
+Kp:3.6 Ki:0 Kd:0.1
+dKp:0.6 dKi:0 dKd:0.02
+Twiddle#: 2 index:0 state:SUB
+Kp:0.08 Ki:0.0006 Kd:0.5
+dKp:0.02 dKi:0.00012 dKd:0.1
+Twiddle#: 2 index:0 state:SUB
+Kp:2.4 Ki:0 Kd:0.1
+dKp:0.6 dKi:0 dKd:0.02
+Twiddle#: 3 index:1 state:ADD
+Kp:0.1 Ki:0.00072 Kd:0.5
+dKp:0.018 dKi:0.00012 dKd:0.1
+Twiddle#: 3 index:1 state:ADD
+Kp:3 Ki:0 Kd:0.1
+dKp:0.54 dKi:0 dKd:0.02
+Error improved: best_error:0.171096
+Twiddle#: 4 index:2 state:ADD
+Kp:0.1 Ki:0.00072 Kd:0.6
+dKp:0.018 dKi:0.000132 dKd:0.1
+Error improved: best_error:0.171096
+Twiddle#: 4 index:2 state:ADD
+Kp:3 Ki:0 Kd:0.12
+dKp:0.54 dKi:0 dKd:0.02
+Twiddle#: 5 index:2 state:SUB
+Kp:0.1 Ki:0.00072 Kd:0.4
+dKp:0.018 dKi:0.000132 dKd:0.1
+Twiddle#: 5 index:2 state:SUB
+Kp:3 Ki:0 Kd:0.08
+dKp:0.54 dKi:0 dKd:0.02
+Twiddle#: 6 index:0 state:ADD
+Kp:0.118 Ki:0.00072 Kd:0.5
+dKp:0.018 dKi:0.000132 dKd:0.09
+Twiddle#: 6 index:0 state:ADD
+Kp:3.54 Ki:0 Kd:0.1
+dKp:0.54 dKi:0 dKd:0.018
+Twiddle#: 7 index:0 state:SUB
+Kp:0.082 Ki:0.00072 Kd:0.5
+dKp:0.018 dKi:0.000132 dKd:0.09
+Twiddle#: 7 index:0 state:SUB
+Kp:2.46 Ki:0 Kd:0.1
+dKp:0.54 dKi:0 dKd:0.018
+Twiddle#: 8 index:1 state:ADD
+Kp:0.1 Ki:0.000852 Kd:0.5
+dKp:0.0162 dKi:0.000132 dKd:0.09
+Twiddle#: 8 index:1 state:ADD
+Kp:3 Ki:0 Kd:0.1
+dKp:0.486 dKi:0 dKd:0.018
+Twiddle#: 9 index:1 state:SUB
+Kp:0.1 Ki:0.000588 Kd:0.5
+dKp:0.0162 dKi:0.000132 dKd:0.09
+Twiddle#: 9 index:1 state:SUB
+Kp:3 Ki:0 Kd:0.1
+dKp:0.486 dKi:0 dKd:0.018
+Error improved: best_error:0.170733
+Twiddle#: 10 index:2 state:ADD
+Kp:0.1 Ki:0.000588 Kd:0.59
+dKp:0.0162 dKi:0.0001452 dKd:0.09
+Error improved: best_error:0.170733
+Twiddle#: 10 index:2 state:ADD
+Kp:3 Ki:0 Kd:0.118
+dKp:0.486 dKi:0 dKd:0.018
+Twiddle#: 11 index:2 state:SUB
+Kp:0.1 Ki:0.000588 Kd:0.41
+dKp:0.0162 dKi:0.0001452 dKd:0.09
+Twiddle#: 11 index:2 state:SUB
+Kp:3 Ki:0 Kd:0.082
+dKp:0.486 dKi:0 dKd:0.018
+Twiddle#: 12 index:0 state:ADD
+Kp:0.1162 Ki:0.000588 Kd:0.5
+dKp:0.0162 dKi:0.0001452 dKd:0.081
+Twiddle#: 12 index:0 state:ADD
+Kp:3.486 Ki:0 Kd:0.1
+dKp:0.486 dKi:0 dKd:0.0162
+Twiddle#: 13 index:0 state:SUB
+Kp:0.0838 Ki:0.000588 Kd:0.5
+dKp:0.0162 dKi:0.0001452 dKd:0.081
+Twiddle#: 13 index:0 state:SUB
+Kp:2.514 Ki:0 Kd:0.1
+dKp:0.486 dKi:0 dKd:0.0162
+Twiddle#: 14 index:1 state:ADD
+Kp:0.1 Ki:0.0007332 Kd:0.5
+dKp:0.01458 dKi:0.0001452 dKd:0.081
+Twiddle#: 14 index:1 state:ADD
+Kp:3 Ki:0 Kd:0.1
+dKp:0.4374 dKi:0 dKd:0.0162
+Error improved: best_error:0.169496
+Twiddle#: 15 index:2 state:ADD
+Kp:0.1 Ki:0.0007332 Kd:0.581
+dKp:0.01458 dKi:0.00015972 dKd:0.081
+Error improved: best_error:0.169496
+Twiddle#: 15 index:2 state:ADD
+Kp:3 Ki:0 Kd:0.1162
+dKp:0.4374 dKi:0 dKd:0.0162
+Twiddle#: 16 index:2 state:SUB
+Kp:0.1 Ki:0.0007332 Kd:0.419
+dKp:0.01458 dKi:0.00015972 dKd:0.081
+Twiddle#: 16 index:2 state:SUB
+Kp:3 Ki:0 Kd:0.0838
+dKp:0.4374 dKi:0 dKd:0.0162
+Twiddle#: 17 index:0 state:ADD
+Kp:0.11458 Ki:0.0007332 Kd:0.5
+dKp:0.01458 dKi:0.00015972 dKd:0.0729
+Twiddle#: 17 index:0 state:ADD
+Kp:3.4374 Ki:0 Kd:0.1
+dKp:0.4374 dKi:0 dKd:0.01458
+Twiddle#: 18 index:0 state:SUB
+Kp:0.08542 Ki:0.0007332 Kd:0.5
+dKp:0.01458 dKi:0.00015972 dKd:0.0729
+Twiddle#: 18 index:0 state:SUB
+Kp:2.5626 Ki:0 Kd:0.1
+dKp:0.4374 dKi:0 dKd:0.01458
+Twiddle#: 19 index:1 state:ADD
+Kp:0.1 Ki:0.00089292 Kd:0.5
+dKp:0.013122 dKi:0.00015972 dKd:0.0729
+Twiddle#: 19 index:1 state:ADD
+Kp:3 Ki:0 Kd:0.1
+dKp:0.39366 dKi:0 dKd:0.01458
+Twiddle#: 20 index:1 state:SUB
+Kp:0.1 Ki:0.00057348 Kd:0.5
+dKp:0.013122 dKi:0.00015972 dKd:0.0729
+Twiddle#: 20 index:1 state:SUB
+Kp:3 Ki:0 Kd:0.1
+dKp:0.39366 dKi:0 dKd:0.01458
+Twiddle#: 21 index:2 state:ADD
+Kp:0.1 Ki:0.0007332 Kd:0.5729
+dKp:0.013122 dKi:0.000143748 dKd:0.0729
+Twiddle#: 21 index:2 state:ADD
+Kp:3 Ki:0 Kd:0.11458
+dKp:0.39366 dKi:0 dKd:0.01458
+Twiddle#: 22 index:2 state:SUB
+Kp:0.1 Ki:0.0007332 Kd:0.4271
+dKp:0.013122 dKi:0.000143748 dKd:0.0729
+Twiddle#: 22 index:2 state:SUB
+Kp:3 Ki:0 Kd:0.08542
+dKp:0.39366 dKi:0 dKd:0.01458
+Twiddle#: 23 index:0 state:ADD
+Kp:0.113122 Ki:0.0007332 Kd:0.5
+dKp:0.013122 dKi:0.000143748 dKd:0.06561
+Twiddle#: 23 index:0 state:ADD
+Kp:3.39366 Ki:0 Kd:0.1
+dKp:0.39366 dKi:0 dKd:0.013122
+Error improved: best_error:0.155968
+Twiddle#: 24 index:1 state:ADD
+Kp:0.113122 Ki:0.000876948 Kd:0.5
+dKp:0.0144342 dKi:0.000143748 dKd:0.06561
+Error improved: best_error:0.155968
+Twiddle#: 24 index:1 state:ADD
+Kp:3.39366 Ki:0 Kd:0.1
+dKp:0.433026 dKi:0 dKd:0.013122
+Twiddle#: 25 index:1 state:SUB
+Kp:0.113122 Ki:0.000589452 Kd:0.5
+dKp:0.0144342 dKi:0.000143748 dKd:0.06561
+Twiddle#: 25 index:1 state:SUB
+Kp:3.39366 Ki:0 Kd:0.1
+dKp:0.433026 dKi:0 dKd:0.013122
+Twiddle#: 26 index:2 state:ADD
+Kp:0.113122 Ki:0.0007332 Kd:0.56561
+dKp:0.0144342 dKi:0.000129373 dKd:0.06561
+Twiddle#: 26 index:2 state:ADD
+Kp:3.39366 Ki:0 Kd:0.113122
+dKp:0.433026 dKi:0 dKd:0.013122
+Twiddle#: 27 index:2 state:SUB
+Kp:0.113122 Ki:0.0007332 Kd:0.43439
+dKp:0.0144342 dKi:0.000129373 dKd:0.06561
+Twiddle#: 27 index:2 state:SUB
+Kp:3.39366 Ki:0 Kd:0.086878
+dKp:0.433026 dKi:0 dKd:0.013122
+Twiddle#: 28 index:0 state:ADD
+Kp:0.127556 Ki:0.0007332 Kd:0.5
+dKp:0.0144342 dKi:0.000129373 dKd:0.059049
+Twiddle#: 28 index:0 state:ADD
+Kp:3.82669 Ki:0 Kd:0.1
+dKp:0.433026 dKi:0 dKd:0.0118098
+Twiddle#: 29 index:0 state:SUB
+Kp:0.0986878 Ki:0.0007332 Kd:0.5
+dKp:0.0144342 dKi:0.000129373 dKd:0.059049
+Twiddle#: 29 index:0 state:SUB
+Kp:2.96063 Ki:0 Kd:0.1
+dKp:0.433026 dKi:0 dKd:0.0118098
+Twiddle#: 30 index:1 state:ADD
+Kp:0.113122 Ki:0.000862573 Kd:0.5
+dKp:0.0129908 dKi:0.000129373 dKd:0.059049
+Twiddle#: 30 index:1 state:ADD
+Kp:3.39366 Ki:0 Kd:0.1
+dKp:0.389723 dKi:0 dKd:0.0118098
+Twiddle#: 31 index:1 state:SUB
+Kp:0.113122 Ki:0.000603827 Kd:0.5
+dKp:0.0129908 dKi:0.000129373 dKd:0.059049
+Twiddle#: 31 index:1 state:SUB
+Kp:3.39366 Ki:0 Kd:0.1
+dKp:0.389723 dKi:0 dKd:0.0118098
+Twiddle#: 32 index:2 state:ADD
+Kp:0.113122 Ki:0.0007332 Kd:0.559049
+dKp:0.0129908 dKi:0.000116436 dKd:0.059049
+Twiddle#: 32 index:2 state:ADD
+Kp:3.39366 Ki:0 Kd:0.11181
+dKp:0.389723 dKi:0 dKd:0.0118098
+Twiddle#: 33 index:2 state:SUB
+Kp:0.113122 Ki:0.0007332 Kd:0.440951
+dKp:0.0129908 dKi:0.000116436 dKd:0.059049
+Twiddle#: 33 index:2 state:SUB
+Kp:3.39366 Ki:0 Kd:0.0881902
+dKp:0.389723 dKi:0 dKd:0.0118098
+Twiddle#: 34 index:0 state:ADD
+Kp:0.126113 Ki:0.0007332 Kd:0.5
+dKp:0.0129908 dKi:0.000116436 dKd:0.0531441
+Twiddle#: 34 index:0 state:ADD
+Kp:3.78338 Ki:0 Kd:0.1
+dKp:0.389723 dKi:0 dKd:0.0106288
+Twiddle#: 35 index:0 state:SUB
+Kp:0.100131 Ki:0.0007332 Kd:0.5
+dKp:0.0129908 dKi:0.000116436 dKd:0.0531441
+Twiddle#: 35 index:0 state:SUB
+Kp:3.00394 Ki:0 Kd:0.1
+dKp:0.389723 dKi:0 dKd:0.0106288
+Twiddle#: 36 index:1 state:ADD
+Kp:0.113122 Ki:0.000849636 Kd:0.5
+dKp:0.0116917 dKi:0.000116436 dKd:0.0531441
+Twiddle#: 36 index:1 state:ADD
+Kp:3.39366 Ki:0 Kd:0.1
+dKp:0.350751 dKi:0 dKd:0.0106288
+Twiddle#: 37 index:1 state:SUB
+Kp:0.113122 Ki:0.000616764 Kd:0.5
+dKp:0.0116917 dKi:0.000116436 dKd:0.0531441
+Twiddle#: 37 index:1 state:SUB
+Kp:3.39366 Ki:0 Kd:0.1
+dKp:0.350751 dKi:0 dKd:0.0106288
+Twiddle#: 38 index:2 state:ADD
+Kp:0.113122 Ki:0.0007332 Kd:0.553144
+dKp:0.0116917 dKi:0.000104792 dKd:0.0531441
+Twiddle#: 38 index:2 state:ADD
+Kp:3.39366 Ki:0 Kd:0.110629
+dKp:0.350751 dKi:0 dKd:0.0106288
+Twiddle#: 39 index:2 state:SUB
+Kp:0.113122 Ki:0.0007332 Kd:0.446856
+dKp:0.0116917 dKi:0.000104792 dKd:0.0531441
+Twiddle#: 39 index:2 state:SUB
+Kp:3.39366 Ki:0 Kd:0.0893712
+dKp:0.350751 dKi:0 dKd:0.0106288
+Twiddle#: 40 index:0 state:ADD
+Kp:0.124814 Ki:0.0007332 Kd:0.5
+dKp:0.0116917 dKi:0.000104792 dKd:0.0478297
+Twiddle#: 40 index:0 state:ADD
+Kp:3.74441 Ki:0 Kd:0.1
+dKp:0.350751 dKi:0 dKd:0.00956594
+Twiddle#: 41 index:0 state:SUB
+Kp:0.10143 Ki:0.0007332 Kd:0.5
+dKp:0.0116917 dKi:0.000104792 dKd:0.0478297
+Twiddle#: 41 index:0 state:SUB
+Kp:3.04291 Ki:0 Kd:0.1
+dKp:0.350751 dKi:0 dKd:0.00956594
+Twiddle#: 42 index:1 state:ADD
+Kp:0.113122 Ki:0.000837992 Kd:0.5
+dKp:0.0105225 dKi:0.000104792 dKd:0.0478297
+Twiddle#: 42 index:1 state:ADD
+Kp:3.39366 Ki:0 Kd:0.1
+dKp:0.315676 dKi:0 dKd:0.00956594
+Twiddle#: 43 index:1 state:SUB
+Kp:0.113122 Ki:0.000628408 Kd:0.5
+dKp:0.0105225 dKi:0.000104792 dKd:0.0478297
+Twiddle#: 43 index:1 state:SUB
+Kp:3.39366 Ki:0 Kd:0.1
+dKp:0.315676 dKi:0 dKd:0.00956594
+Twiddle#: 44 index:2 state:ADD
+Kp:0.113122 Ki:0.0007332 Kd:0.54783
+dKp:0.0105225 dKi:9.43131e-05 dKd:0.0478297
+Twiddle#: 44 index:2 state:ADD
+Kp:3.39366 Ki:0 Kd:0.109566
+dKp:0.315676 dKi:0 dKd:0.00956594
+Twiddle#: 45 index:2 state:SUB
+Kp:0.113122 Ki:0.0007332 Kd:0.45217
+dKp:0.0105225 dKi:9.43131e-05 dKd:0.0478297
+Twiddle#: 45 index:2 state:SUB
+Kp:3.39366 Ki:0 Kd:0.0904341
+dKp:0.315676 dKi:0 dKd:0.00956594
+Twiddle#: 46 index:0 state:ADD
+Kp:0.123645 Ki:0.0007332 Kd:0.5
+dKp:0.0105225 dKi:9.43131e-05 dKd:0.0430467
+Twiddle#: 46 index:0 state:ADD
+Kp:3.70934 Ki:0 Kd:0.1
+dKp:0.315676 dKi:0 dKd:0.00860934
+Twiddle#: 47 index:0 state:SUB
+Kp:0.102599 Ki:0.0007332 Kd:0.5
+dKp:0.0105225 dKi:9.43131e-05 dKd:0.0430467
+Twiddle#: 47 index:0 state:SUB
+Kp:3.07798 Ki:0 Kd:0.1
+dKp:0.315676 dKi:0 dKd:0.00860934
+Twiddle#: 48 index:1 state:ADD
+Kp:0.113122 Ki:0.000827513 Kd:0.5
+dKp:0.00947028 dKi:9.43131e-05 dKd:0.0430467
+Twiddle#: 48 index:1 state:ADD
+Kp:3.39366 Ki:0 Kd:0.1
+dKp:0.284108 dKi:0 dKd:0.00860934
+Twiddle#: 49 index:1 state:SUB
+Kp:0.113122 Ki:0.000638887 Kd:0.5
+dKp:0.00947028 dKi:9.43131e-05 dKd:0.0430467
+Twiddle#: 49 index:1 state:SUB
+Kp:3.39366 Ki:0 Kd:0.1
+dKp:0.284108 dKi:0 dKd:0.00860934
+Twiddle#: 50 index:2 state:ADD
+Kp:0.113122 Ki:0.0007332 Kd:0.543047
+dKp:0.00947028 dKi:8.48818e-05 dKd:0.0430467
+Twiddle#: 50 index:2 state:ADD
+Kp:3.39366 Ki:0 Kd:0.108609
+dKp:0.284108 dKi:0 dKd:0.00860934
+Twiddle#: 51 index:2 state:SUB
+Kp:0.113122 Ki:0.0007332 Kd:0.456953
+dKp:0.00947028 dKi:8.48818e-05 dKd:0.0430467
+Twiddle#: 51 index:2 state:SUB
+Kp:3.39366 Ki:0 Kd:0.0913907
+dKp:0.284108 dKi:0 dKd:0.00860934
+Twiddle#: 52 index:0 state:ADD
+Kp:0.122592 Ki:0.0007332 Kd:0.5
+dKp:0.00947028 dKi:8.48818e-05 dKd:0.038742
+Twiddle#: 52 index:0 state:ADD
+Kp:3.67777 Ki:0 Kd:0.1
+dKp:0.284108 dKi:0 dKd:0.00774841
+Twiddle#: 53 index:0 state:SUB
+Kp:0.103652 Ki:0.0007332 Kd:0.5
+dKp:0.00947028 dKi:8.48818e-05 dKd:0.038742
+Twiddle#: 53 index:0 state:SUB
+Kp:3.10955 Ki:0 Kd:0.1
+dKp:0.284108 dKi:0 dKd:0.00774841
+Twiddle#: 54 index:1 state:ADD
+Kp:0.113122 Ki:0.000818082 Kd:0.5
+dKp:0.00852325 dKi:8.48818e-05 dKd:0.038742
+Twiddle#: 54 index:1 state:ADD
+Kp:3.39366 Ki:0 Kd:0.1
+dKp:0.255698 dKi:0 dKd:0.00774841
+Twiddle#: 55 index:1 state:SUB
+Kp:0.113122 Ki:0.000648318 Kd:0.5
+dKp:0.00852325 dKi:8.48818e-05 dKd:0.038742
+Twiddle#: 55 index:1 state:SUB
+Kp:3.39366 Ki:0 Kd:0.1
+dKp:0.255698 dKi:0 dKd:0.00774841
+Twiddle#: 56 index:2 state:ADD
+Kp:0.113122 Ki:0.0007332 Kd:0.538742
+dKp:0.00852325 dKi:7.63936e-05 dKd:0.038742
+Twiddle#: 56 index:2 state:ADD
+Kp:3.39366 Ki:0 Kd:0.107748
+dKp:0.255698 dKi:0 dKd:0.00774841
+Twiddle#: 57 index:2 state:SUB
+Kp:0.113122 Ki:0.0007332 Kd:0.461258
+dKp:0.00852325 dKi:7.63936e-05 dKd:0.038742
+Twiddle#: 57 index:2 state:SUB
+Kp:3.39366 Ki:0 Kd:0.0922516
+dKp:0.255698 dKi:0 dKd:0.00774841
+Twiddle#: 58 index:0 state:ADD
+Kp:0.121645 Ki:0.0007332 Kd:0.5
+dKp:0.00852325 dKi:7.63936e-05 dKd:0.0348678
+Twiddle#: 58 index:0 state:ADD
+Kp:3.64936 Ki:0 Kd:0.1
+dKp:0.255698 dKi:0 dKd:0.00697357
+Twiddle#: 59 index:0 state:SUB
+Kp:0.104599 Ki:0.0007332 Kd:0.5
+dKp:0.00852325 dKi:7.63936e-05 dKd:0.0348678
+Twiddle#: 59 index:0 state:SUB
+Kp:3.13796 Ki:0 Kd:0.1
+dKp:0.255698 dKi:0 dKd:0.00697357
+Twiddle#: 60 index:1 state:ADD
+Kp:0.113122 Ki:0.000809594 Kd:0.5
+dKp:0.00767093 dKi:7.63936e-05 dKd:0.0348678
+Twiddle#: 60 index:1 state:ADD
+Kp:3.39366 Ki:0 Kd:0.1
+dKp:0.230128 dKi:0 dKd:0.00697357
+Twiddle#: 61 index:1 state:SUB
+Kp:0.113122 Ki:0.000656806 Kd:0.5
+dKp:0.00767093 dKi:7.63936e-05 dKd:0.0348678
+Twiddle#: 61 index:1 state:SUB
+Kp:3.39366 Ki:0 Kd:0.1
+dKp:0.230128 dKi:0 dKd:0.00697357
+Twiddle#: 62 index:2 state:ADD
+Kp:0.113122 Ki:0.0007332 Kd:0.534868
+dKp:0.00767093 dKi:6.87542e-05 dKd:0.0348678
+Twiddle#: 62 index:2 state:ADD
+Kp:3.39366 Ki:0 Kd:0.106974
+dKp:0.230128 dKi:0 dKd:0.00697357
+Twiddle#: 63 index:2 state:SUB
+Kp:0.113122 Ki:0.0007332 Kd:0.465132
+dKp:0.00767093 dKi:6.87542e-05 dKd:0.0348678
+Twiddle#: 63 index:2 state:SUB
+Kp:3.39366 Ki:0 Kd:0.0930264
+dKp:0.230128 dKi:0 dKd:0.00697357
+Twiddle#: 64 index:0 state:ADD
+Kp:0.120793 Ki:0.0007332 Kd:0.5
+dKp:0.00767093 dKi:6.87542e-05 dKd:0.0313811
+Twiddle#: 64 index:0 state:ADD
+Kp:3.62379 Ki:0 Kd:0.1
+dKp:0.230128 dKi:0 dKd:0.00627621
+Twiddle#: 65 index:0 state:SUB
+Kp:0.105451 Ki:0.0007332 Kd:0.5
+dKp:0.00767093 dKi:6.87542e-05 dKd:0.0313811
+Twiddle#: 65 index:0 state:SUB
+Kp:3.16353 Ki:0 Kd:0.1
+dKp:0.230128 dKi:0 dKd:0.00627621
+Twiddle#: 66 index:1 state:ADD
+Kp:0.113122 Ki:0.000801954 Kd:0.5
+dKp:0.00690383 dKi:6.87542e-05 dKd:0.0313811
+Twiddle#: 66 index:1 state:ADD
+Kp:3.39366 Ki:0 Kd:0.1
+dKp:0.207115 dKi:0 dKd:0.00627621
+Twiddle#: 67 index:1 state:SUB
+Kp:0.113122 Ki:0.000664446 Kd:0.5
+dKp:0.00690383 dKi:6.87542e-05 dKd:0.0313811
+Twiddle#: 67 index:1 state:SUB
+Kp:3.39366 Ki:0 Kd:0.1
+dKp:0.207115 dKi:0 dKd:0.00627621
+Twiddle#: 68 index:2 state:ADD
+Kp:0.113122 Ki:0.0007332 Kd:0.531381
+dKp:0.00690383 dKi:6.18788e-05 dKd:0.0313811
+Twiddle#: 68 index:2 state:ADD
+Kp:3.39366 Ki:0 Kd:0.106276
+dKp:0.207115 dKi:0 dKd:0.00627621
+Twiddle#: 69 index:2 state:SUB
+Kp:0.113122 Ki:0.0007332 Kd:0.468619
+dKp:0.00690383 dKi:6.18788e-05 dKd:0.0313811
+Twiddle#: 69 index:2 state:SUB
+Kp:3.39366 Ki:0 Kd:0.0937238
+dKp:0.207115 dKi:0 dKd:0.00627621
+Twiddle#: 70 index:0 state:ADD
+Kp:0.120026 Ki:0.0007332 Kd:0.5
+dKp:0.00690383 dKi:6.18788e-05 dKd:0.028243
+Twiddle#: 70 index:0 state:ADD
+Kp:3.60077 Ki:0 Kd:0.1
+dKp:0.207115 dKi:0 dKd:0.00564859
+Twiddle#: 71 index:0 state:SUB
+Kp:0.106218 Ki:0.0007332 Kd:0.5
+dKp:0.00690383 dKi:6.18788e-05 dKd:0.028243
+Twiddle#: 71 index:0 state:SUB
+Kp:3.18655 Ki:0 Kd:0.1
+dKp:0.207115 dKi:0 dKd:0.00564859
+Twiddle#: 72 index:1 state:ADD
+Kp:0.113122 Ki:0.000795079 Kd:0.5
+dKp:0.00621345 dKi:6.18788e-05 dKd:0.028243
+Twiddle#: 72 index:1 state:ADD
+Kp:3.39366 Ki:0 Kd:0.1
+dKp:0.186403 dKi:0 dKd:0.00564859
+Twiddle#: 73 index:1 state:SUB
+Kp:0.113122 Ki:0.000671321 Kd:0.5
+dKp:0.00621345 dKi:6.18788e-05 dKd:0.028243
+Twiddle#: 73 index:1 state:SUB
+Kp:3.39366 Ki:0 Kd:0.1
+dKp:0.186403 dKi:0 dKd:0.00564859
+Twiddle#: 74 index:2 state:ADD
+Kp:0.113122 Ki:0.0007332 Kd:0.528243
+dKp:0.00621345 dKi:5.56909e-05 dKd:0.028243
+Twiddle#: 74 index:2 state:ADD
+Kp:3.39366 Ki:0 Kd:0.105649
+dKp:0.186403 dKi:0 dKd:0.00564859
+Twiddle#: 75 index:2 state:SUB
+Kp:0.113122 Ki:0.0007332 Kd:0.471757
+dKp:0.00621345 dKi:5.56909e-05 dKd:0.028243
+Twiddle#: 75 index:2 state:SUB
+Kp:3.39366 Ki:0 Kd:0.0943514
+dKp:0.186403 dKi:0 dKd:0.00564859
+Twiddle#: 76 index:0 state:ADD
+Kp:0.119335 Ki:0.0007332 Kd:0.5
+dKp:0.00621345 dKi:5.56909e-05 dKd:0.0254187
+Twiddle#: 76 index:0 state:ADD
+Kp:3.58006 Ki:0 Kd:0.1
+dKp:0.186403 dKi:0 dKd:0.00508373
+Twiddle#: 77 index:0 state:SUB
+Kp:0.106909 Ki:0.0007332 Kd:0.5
+dKp:0.00621345 dKi:5.56909e-05 dKd:0.0254187
+Twiddle#: 77 index:0 state:SUB
+Kp:3.20726 Ki:0 Kd:0.1
+dKp:0.186403 dKi:0 dKd:0.00508373
+Twiddle#: 78 index:1 state:ADD
+Kp:0.113122 Ki:0.000788891 Kd:0.5
+dKp:0.0055921 dKi:5.56909e-05 dKd:0.0254187
+Twiddle#: 78 index:1 state:ADD
+Kp:3.39366 Ki:0 Kd:0.1
+dKp:0.167763 dKi:0 dKd:0.00508373
+Twiddle#: 79 index:1 state:SUB
+Kp:0.113122 Ki:0.000677509 Kd:0.5
+dKp:0.0055921 dKi:5.56909e-05 dKd:0.0254187
+Twiddle#: 79 index:1 state:SUB
+Kp:3.39366 Ki:0 Kd:0.1
+dKp:0.167763 dKi:0 dKd:0.00508373
+Twiddle#: 80 index:2 state:ADD
+Kp:0.113122 Ki:0.0007332 Kd:0.525419
+dKp:0.0055921 dKi:5.01218e-05 dKd:0.0254187
+Twiddle#: 80 index:2 state:ADD
+Kp:3.39366 Ki:0 Kd:0.105084
+dKp:0.167763 dKi:0 dKd:0.00508373
+Twiddle#: 81 index:2 state:SUB
+Kp:0.113122 Ki:0.0007332 Kd:0.474581
+dKp:0.0055921 dKi:5.01218e-05 dKd:0.0254187
+Twiddle#: 81 index:2 state:SUB
+Kp:3.39366 Ki:0 Kd:0.0949163
+dKp:0.167763 dKi:0 dKd:0.00508373
+Twiddle#: 82 index:0 state:ADD
+Kp:0.118714 Ki:0.0007332 Kd:0.5
+dKp:0.0055921 dKi:5.01218e-05 dKd:0.0228768
+Twiddle#: 82 index:0 state:ADD
+Kp:3.56142 Ki:0 Kd:0.1
+dKp:0.167763 dKi:0 dKd:0.00457536
+Twiddle#: 83 index:0 state:SUB
+Kp:0.10753 Ki:0.0007332 Kd:0.5
+dKp:0.0055921 dKi:5.01218e-05 dKd:0.0228768
+Twiddle#: 83 index:0 state:SUB
+Kp:3.2259 Ki:0 Kd:0.1
+dKp:0.167763 dKi:0 dKd:0.00457536
+Twiddle#: 84 index:1 state:ADD
+Kp:0.113122 Ki:0.000783322 Kd:0.5
+dKp:0.00503289 dKi:5.01218e-05 dKd:0.0228768
+Twiddle#: 84 index:1 state:ADD
+Kp:3.39366 Ki:0 Kd:0.1
+dKp:0.150987 dKi:0 dKd:0.00457536
+Twiddle#: 85 index:1 state:SUB
+Kp:0.113122 Ki:0.000683078 Kd:0.5
+dKp:0.00503289 dKi:5.01218e-05 dKd:0.0228768
+Twiddle#: 85 index:1 state:SUB
+Kp:3.39366 Ki:0 Kd:0.1
+dKp:0.150987 dKi:0 dKd:0.00457536
+Twiddle#: 86 index:2 state:ADD
+Kp:0.113122 Ki:0.0007332 Kd:0.522877
+dKp:0.00503289 dKi:4.51096e-05 dKd:0.0228768
+Twiddle#: 86 index:2 state:ADD
+Kp:3.39366 Ki:0 Kd:0.104575
+dKp:0.150987 dKi:0 dKd:0.00457536
+Error improved: best_error:0.15291
+Twiddle#: 87 index:0 state:ADD
+Kp:0.118155 Ki:0.0007332 Kd:0.522877
+dKp:0.00503289 dKi:4.51096e-05 dKd:0.0251645
+Error improved: best_error:0.15291
+Twiddle#: 87 index:0 state:ADD
+Kp:3.54465 Ki:0 Kd:0.104575
+dKp:0.150987 dKi:0 dKd:0.00503289
+Twiddle#: 88 index:0 state:SUB
+Kp:0.108089 Ki:0.0007332 Kd:0.522877
+dKp:0.00503289 dKi:4.51096e-05 dKd:0.0251645
+Twiddle#: 88 index:0 state:SUB
+Kp:3.24267 Ki:0 Kd:0.104575
+dKp:0.150987 dKi:0 dKd:0.00503289
+Twiddle#: 89 index:1 state:ADD
+Kp:0.113122 Ki:0.00077831 Kd:0.522877
+dKp:0.0045296 dKi:4.51096e-05 dKd:0.0251645
+Twiddle#: 89 index:1 state:ADD
+Kp:3.39366 Ki:0 Kd:0.104575
+dKp:0.135888 dKi:0 dKd:0.00503289
+Twiddle#: 90 index:1 state:SUB
+Kp:0.113122 Ki:0.00068809 Kd:0.522877
+dKp:0.0045296 dKi:4.51096e-05 dKd:0.0251645
+Twiddle#: 90 index:1 state:SUB
+Kp:3.39366 Ki:0 Kd:0.104575
+dKp:0.135888 dKi:0 dKd:0.00503289
+Twiddle#: 91 index:2 state:ADD
+Kp:0.113122 Ki:0.0007332 Kd:0.548041
+dKp:0.0045296 dKi:4.05987e-05 dKd:0.0251645
+Twiddle#: 91 index:2 state:ADD
+Kp:3.39366 Ki:0 Kd:0.109608
+dKp:0.135888 dKi:0 dKd:0.00503289
+Twiddle#: 92 index:2 state:SUB
+Kp:0.113122 Ki:0.0007332 Kd:0.497712
+dKp:0.0045296 dKi:4.05987e-05 dKd:0.0251645
+Twiddle#: 92 index:2 state:SUB
+Kp:3.39366 Ki:0 Kd:0.0995425
+dKp:0.135888 dKi:0 dKd:0.00503289
+Twiddle#: 93 index:0 state:ADD
+Kp:0.117652 Ki:0.0007332 Kd:0.522877
+dKp:0.0045296 dKi:4.05987e-05 dKd:0.022648
+Twiddle#: 93 index:0 state:ADD
+Kp:3.52955 Ki:0 Kd:0.104575
+dKp:0.135888 dKi:0 dKd:0.0045296
+Twiddle#: 94 index:0 state:SUB
+Kp:0.108592 Ki:0.0007332 Kd:0.522877
+dKp:0.0045296 dKi:4.05987e-05 dKd:0.022648
+Twiddle#: 94 index:0 state:SUB
+Kp:3.25777 Ki:0 Kd:0.104575
+dKp:0.135888 dKi:0 dKd:0.0045296
+Twiddle#: 95 index:1 state:ADD
+Kp:0.113122 Ki:0.000773799 Kd:0.522877
+dKp:0.00407664 dKi:4.05987e-05 dKd:0.022648
+Twiddle#: 95 index:1 state:ADD
+Kp:3.39366 Ki:0 Kd:0.104575
+dKp:0.122299 dKi:0 dKd:0.0045296
+Twiddle#: 96 index:1 state:SUB
+Kp:0.113122 Ki:0.000692601 Kd:0.522877
+dKp:0.00407664 dKi:4.05987e-05 dKd:0.022648
+Twiddle#: 96 index:1 state:SUB
+Kp:3.39366 Ki:0 Kd:0.104575
+dKp:0.122299 dKi:0 dKd:0.0045296
+Twiddle#: 97 index:2 state:ADD
+Kp:0.113122 Ki:0.0007332 Kd:0.545525
+dKp:0.00407664 dKi:3.65388e-05 dKd:0.022648
+Twiddle#: 97 index:2 state:ADD
+Kp:3.39366 Ki:0 Kd:0.109105
+dKp:0.122299 dKi:0 dKd:0.0045296
+Twiddle#: 98 index:2 state:SUB
+Kp:0.113122 Ki:0.0007332 Kd:0.500229
+dKp:0.00407664 dKi:3.65388e-05 dKd:0.022648
+Twiddle#: 98 index:2 state:SUB
+Kp:3.39366 Ki:0 Kd:0.100046
+dKp:0.122299 dKi:0 dKd:0.0045296
+Twiddle#: 99 index:0 state:ADD
+Kp:0.117199 Ki:0.0007332 Kd:0.522877
+dKp:0.00407664 dKi:3.65388e-05 dKd:0.0203832
+Twiddle#: 99 index:0 state:ADD
+Kp:3.51596 Ki:0 Kd:0.104575
+dKp:0.122299 dKi:0 dKd:0.00407664
+Twiddle#: 100 index:0 state:SUB
+Kp:0.109045 Ki:0.0007332 Kd:0.522877
+dKp:0.00407664 dKi:3.65388e-05 dKd:0.0203832
+Twiddle#: 100 index:0 state:SUB
+Kp:3.27136 Ki:0 Kd:0.104575
+dKp:0.122299 dKi:0 dKd:0.00407664
+Twiddle#: 101 index:1 state:ADD
+Kp:0.113122 Ki:0.000769739 Kd:0.522877
+dKp:0.00366898 dKi:3.65388e-05 dKd:0.0203832
+Twiddle#: 101 index:1 state:ADD
+Kp:3.39366 Ki:0 Kd:0.104575
+dKp:0.110069 dKi:0 dKd:0.00407664
+Twiddle#: 102 index:1 state:SUB
+Kp:0.113122 Ki:0.000696661 Kd:0.522877
+dKp:0.00366898 dKi:3.65388e-05 dKd:0.0203832
+Twiddle#: 102 index:1 state:SUB
+Kp:3.39366 Ki:0 Kd:0.104575
+dKp:0.110069 dKi:0 dKd:0.00407664
+Twiddle#: 103 index:2 state:ADD
+Kp:0.113122 Ki:0.0007332 Kd:0.54326
+dKp:0.00366898 dKi:3.28849e-05 dKd:0.0203832
+Twiddle#: 103 index:2 state:ADD
+Kp:3.39366 Ki:0 Kd:0.108652
+dKp:0.110069 dKi:0 dKd:0.00407664
+Twiddle#: 104 index:2 state:SUB
+Kp:0.113122 Ki:0.0007332 Kd:0.502494
+dKp:0.00366898 dKi:3.28849e-05 dKd:0.0203832
+Twiddle#: 104 index:2 state:SUB
+Kp:3.39366 Ki:0 Kd:0.100499
+dKp:0.110069 dKi:0 dKd:0.00407664
+Twiddle#: 105 index:0 state:ADD
+Kp:0.116791 Ki:0.0007332 Kd:0.522877
+dKp:0.00366898 dKi:3.28849e-05 dKd:0.0183449
+Twiddle#: 105 index:0 state:ADD
+Kp:3.50373 Ki:0 Kd:0.104575
+dKp:0.110069 dKi:0 dKd:0.00366898
+Error improved: best_error:0.147226
+Twiddle#: 106 index:1 state:ADD
+Kp:0.116791 Ki:0.000766085 Kd:0.522877
+dKp:0.00403588 dKi:3.28849e-05 dKd:0.0183449
+Error improved: best_error:0.147226
+Twiddle#: 106 index:1 state:ADD
+Kp:3.50373 Ki:0 Kd:0.104575
+dKp:0.121076 dKi:0 dKd:0.00366898
+Twiddle#: 107 index:1 state:SUB
+Kp:0.116791 Ki:0.000700315 Kd:0.522877
+dKp:0.00403588 dKi:3.28849e-05 dKd:0.0183449
+Twiddle#: 107 index:1 state:SUB
+Kp:3.50373 Ki:0 Kd:0.104575
+dKp:0.121076 dKi:0 dKd:0.00366898
+Twiddle#: 108 index:2 state:ADD
+Kp:0.116791 Ki:0.0007332 Kd:0.541222
+dKp:0.00403588 dKi:2.95964e-05 dKd:0.0183449
+Twiddle#: 108 index:2 state:ADD
+Kp:3.50373 Ki:0 Kd:0.108244
+dKp:0.121076 dKi:0 dKd:0.00366898
+Twiddle#: 109 index:2 state:SUB
+Kp:0.116791 Ki:0.0007332 Kd:0.504532
+dKp:0.00403588 dKi:2.95964e-05 dKd:0.0183449
+Twiddle#: 109 index:2 state:SUB
+Kp:3.50373 Ki:0 Kd:0.100906
+dKp:0.121076 dKi:0 dKd:0.00366898
+Twiddle#: 110 index:0 state:ADD
+Kp:0.120827 Ki:0.0007332 Kd:0.522877
+dKp:0.00403588 dKi:2.95964e-05 dKd:0.0165104
+Twiddle#: 110 index:0 state:ADD
+Kp:3.62481 Ki:0 Kd:0.104575
+dKp:0.121076 dKi:0 dKd:0.00330208
+Twiddle#: 111 index:0 state:SUB
+Kp:0.112755 Ki:0.0007332 Kd:0.522877
+dKp:0.00403588 dKi:2.95964e-05 dKd:0.0165104
+Twiddle#: 111 index:0 state:SUB
+Kp:3.38265 Ki:0 Kd:0.104575
+dKp:0.121076 dKi:0 dKd:0.00330208
+Twiddle#: 112 index:1 state:ADD
+Kp:0.116791 Ki:0.000762796 Kd:0.522877
+dKp:0.00363229 dKi:2.95964e-05 dKd:0.0165104
+Twiddle#: 112 index:1 state:ADD
+Kp:3.50373 Ki:0 Kd:0.104575
+dKp:0.108969 dKi:0 dKd:0.00330208
+Twiddle#: 113 index:1 state:SUB
+Kp:0.116791 Ki:0.000703604 Kd:0.522877
+dKp:0.00363229 dKi:2.95964e-05 dKd:0.0165104
+Twiddle#: 113 index:1 state:SUB
+Kp:3.50373 Ki:0 Kd:0.104575
+dKp:0.108969 dKi:0 dKd:0.00330208
+Twiddle#: 114 index:2 state:ADD
+Kp:0.116791 Ki:0.0007332 Kd:0.539387
+dKp:0.00363229 dKi:2.66368e-05 dKd:0.0165104
+Twiddle#: 114 index:2 state:ADD
+Kp:3.50373 Ki:0 Kd:0.107877
+dKp:0.108969 dKi:0 dKd:0.00330208
+Twiddle#: 115 index:2 state:SUB
+Kp:0.116791 Ki:0.0007332 Kd:0.506366
+dKp:0.00363229 dKi:2.66368e-05 dKd:0.0165104
+Twiddle#: 115 index:2 state:SUB
+Kp:3.50373 Ki:0 Kd:0.101273
+dKp:0.108969 dKi:0 dKd:0.00330208
+Twiddle#: 116 index:0 state:ADD
+Kp:0.120423 Ki:0.0007332 Kd:0.522877
+dKp:0.00363229 dKi:2.66368e-05 dKd:0.0148594
+Twiddle#: 116 index:0 state:ADD
+Kp:3.6127 Ki:0 Kd:0.104575
+dKp:0.108969 dKi:0 dKd:0.00297187
+Twiddle#: 117 index:0 state:SUB
+Kp:0.113159 Ki:0.0007332 Kd:0.522877
+dKp:0.00363229 dKi:2.66368e-05 dKd:0.0148594
+Twiddle#: 117 index:0 state:SUB
+Kp:3.39476 Ki:0 Kd:0.104575
+dKp:0.108969 dKi:0 dKd:0.00297187
+Twiddle#: 118 index:1 state:ADD
+Kp:0.116791 Ki:0.000759837 Kd:0.522877
+dKp:0.00326906 dKi:2.66368e-05 dKd:0.0148594
+Twiddle#: 118 index:1 state:ADD
+Kp:3.50373 Ki:0 Kd:0.104575
+dKp:0.0980718 dKi:0 dKd:0.00297187
+Twiddle#: 119 index:1 state:SUB
+Kp:0.116791 Ki:0.000706563 Kd:0.522877
+dKp:0.00326906 dKi:2.66368e-05 dKd:0.0148594
+Twiddle#: 119 index:1 state:SUB
+Kp:3.50373 Ki:0 Kd:0.104575
+dKp:0.0980718 dKi:0 dKd:0.00297187
+Twiddle#: 120 index:2 state:ADD
+Kp:0.116791 Ki:0.0007332 Kd:0.537736
+dKp:0.00326906 dKi:2.39731e-05 dKd:0.0148594
+Twiddle#: 120 index:2 state:ADD
+Kp:3.50373 Ki:0 Kd:0.107547
+dKp:0.0980718 dKi:0 dKd:0.00297187
+Twiddle#: 121 index:2 state:SUB
+Kp:0.116791 Ki:0.0007332 Kd:0.508017
+dKp:0.00326906 dKi:2.39731e-05 dKd:0.0148594
+Twiddle#: 121 index:2 state:SUB
+Kp:3.50373 Ki:0 Kd:0.101603
+dKp:0.0980718 dKi:0 dKd:0.00297187
+Twiddle#: 122 index:0 state:ADD
+Kp:0.12006 Ki:0.0007332 Kd:0.522877
+dKp:0.00326906 dKi:2.39731e-05 dKd:0.0133734
+Twiddle#: 122 index:0 state:ADD
+Kp:3.6018 Ki:0 Kd:0.104575
+dKp:0.0980718 dKi:0 dKd:0.00267469
+Twiddle#: 123 index:0 state:SUB
+Kp:0.113522 Ki:0.0007332 Kd:0.522877
+dKp:0.00326906 dKi:2.39731e-05 dKd:0.0133734
+Twiddle#: 123 index:0 state:SUB
+Kp:3.40566 Ki:0 Kd:0.104575
+dKp:0.0980718 dKi:0 dKd:0.00267469
+Twiddle#: 124 index:1 state:ADD
+Kp:0.116791 Ki:0.000757173 Kd:0.522877
+dKp:0.00294216 dKi:2.39731e-05 dKd:0.0133734
+Twiddle#: 124 index:1 state:ADD
+Kp:3.50373 Ki:0 Kd:0.104575
+dKp:0.0882647 dKi:0 dKd:0.00267469
+Twiddle#: 125 index:1 state:SUB
+Kp:0.116791 Ki:0.000709227 Kd:0.522877
+dKp:0.00294216 dKi:2.39731e-05 dKd:0.0133734
+Twiddle#: 125 index:1 state:SUB
+Kp:3.50373 Ki:0 Kd:0.104575
+dKp:0.0882647 dKi:0 dKd:0.00267469
+Twiddle#: 126 index:2 state:ADD
+Kp:0.116791 Ki:0.0007332 Kd:0.53625
+dKp:0.00294216 dKi:2.15758e-05 dKd:0.0133734
+Twiddle#: 126 index:2 state:ADD
+Kp:3.50373 Ki:0 Kd:0.10725
+dKp:0.0882647 dKi:0 dKd:0.00267469
+Twiddle#: 127 index:2 state:SUB
+Kp:0.116791 Ki:0.0007332 Kd:0.509503
+dKp:0.00294216 dKi:2.15758e-05 dKd:0.0133734
+Twiddle#: 127 index:2 state:SUB
+Kp:3.50373 Ki:0 Kd:0.101901
+dKp:0.0882647 dKi:0 dKd:0.00267469
+Twiddle#: 128 index:0 state:ADD
+Kp:0.119733 Ki:0.0007332 Kd:0.522877
+dKp:0.00294216 dKi:2.15758e-05 dKd:0.0120361
+Twiddle#: 128 index:0 state:ADD
+Kp:3.59199 Ki:0 Kd:0.104575
+dKp:0.0882647 dKi:0 dKd:0.00240722
+Twiddle#: 129 index:0 state:SUB
+Kp:0.113849 Ki:0.0007332 Kd:0.522877
+dKp:0.00294216 dKi:2.15758e-05 dKd:0.0120361
+Twiddle#: 129 index:0 state:SUB
+Kp:3.41546 Ki:0 Kd:0.104575
+dKp:0.0882647 dKi:0 dKd:0.00240722
+Twiddle#: 130 index:1 state:ADD
+Kp:0.116791 Ki:0.000754776 Kd:0.522877
+dKp:0.00264794 dKi:2.15758e-05 dKd:0.0120361
+Twiddle#: 130 index:1 state:ADD
+Kp:3.50373 Ki:0 Kd:0.104575
+dKp:0.0794382 dKi:0 dKd:0.00240722
+Twiddle#: 131 index:1 state:SUB
+Kp:0.116791 Ki:0.000711624 Kd:0.522877
+dKp:0.00264794 dKi:2.15758e-05 dKd:0.0120361
+Twiddle#: 131 index:1 state:SUB
+Kp:3.50373 Ki:0 Kd:0.104575
+dKp:0.0794382 dKi:0 dKd:0.00240722
+Twiddle#: 132 index:2 state:ADD
+Kp:0.116791 Ki:0.0007332 Kd:0.534913
+dKp:0.00264794 dKi:1.94182e-05 dKd:0.0120361
+Twiddle#: 132 index:2 state:ADD
+Kp:3.50373 Ki:0 Kd:0.106983
+dKp:0.0794382 dKi:0 dKd:0.00240722
+Twiddle#: 133 index:2 state:SUB
+Kp:0.116791 Ki:0.0007332 Kd:0.510841
+dKp:0.00264794 dKi:1.94182e-05 dKd:0.0120361
+Twiddle#: 133 index:2 state:SUB
+Kp:3.50373 Ki:0 Kd:0.102168
+dKp:0.0794382 dKi:0 dKd:0.00240722
+Twiddle#: 134 index:0 state:ADD
+Kp:0.119439 Ki:0.0007332 Kd:0.522877
+dKp:0.00264794 dKi:1.94182e-05 dKd:0.0108325
+Twiddle#: 134 index:0 state:ADD
+Kp:3.58317 Ki:0 Kd:0.104575
+dKp:0.0794382 dKi:0 dKd:0.0021665
+Twiddle#: 135 index:0 state:SUB
+Kp:0.114143 Ki:0.0007332 Kd:0.522877
+dKp:0.00264794 dKi:1.94182e-05 dKd:0.0108325
+Twiddle#: 135 index:0 state:SUB
+Kp:3.42429 Ki:0 Kd:0.104575
+dKp:0.0794382 dKi:0 dKd:0.0021665
+Twiddle#: 136 index:1 state:ADD
+Kp:0.116791 Ki:0.000752618 Kd:0.522877
+dKp:0.00238315 dKi:1.94182e-05 dKd:0.0108325
+Twiddle#: 136 index:1 state:ADD
+Kp:3.50373 Ki:0 Kd:0.104575
+dKp:0.0714944 dKi:0 dKd:0.0021665
+Twiddle#: 137 index:1 state:SUB
+Kp:0.116791 Ki:0.000713782 Kd:0.522877
+dKp:0.00238315 dKi:1.94182e-05 dKd:0.0108325
+Twiddle#: 137 index:1 state:SUB
+Kp:3.50373 Ki:0 Kd:0.104575
+dKp:0.0714944 dKi:0 dKd:0.0021665
+Twiddle#: 138 index:2 state:ADD
+Kp:0.116791 Ki:0.0007332 Kd:0.533709
+dKp:0.00238315 dKi:1.74764e-05 dKd:0.0108325
+Twiddle#: 138 index:2 state:ADD
+Kp:3.50373 Ki:0 Kd:0.106742
+dKp:0.0714944 dKi:0 dKd:0.0021665
+Error improved: best_error:0.144664
+Twiddle#: 139 index:0 state:ADD
+Kp:0.119174 Ki:0.0007332 Kd:0.533709
+dKp:0.00238315 dKi:1.74764e-05 dKd:0.0119157
+Error improved: best_error:0.144664
+Twiddle#: 139 index:0 state:ADD
+Kp:3.57522 Ki:0 Kd:0.106742
+dKp:0.0714944 dKi:0 dKd:0.00238315
+Twiddle#: 140 index:0 state:SUB
+Kp:0.114408 Ki:0.0007332 Kd:0.533709
+dKp:0.00238315 dKi:1.74764e-05 dKd:0.0119157
+Twiddle#: 140 index:0 state:SUB
+Kp:3.43224 Ki:0 Kd:0.106742
+dKp:0.0714944 dKi:0 dKd:0.00238315
+Twiddle#: 141 index:1 state:ADD
+Kp:0.116791 Ki:0.000750676 Kd:0.533709
+dKp:0.00214483 dKi:1.74764e-05 dKd:0.0119157
+Twiddle#: 141 index:1 state:ADD
+Kp:3.50373 Ki:0 Kd:0.106742
+dKp:0.0643449 dKi:0 dKd:0.00238315
+Twiddle#: 142 index:1 state:SUB
+Kp:0.116791 Ki:0.000715724 Kd:0.533709
+dKp:0.00214483 dKi:1.74764e-05 dKd:0.0119157
+Twiddle#: 142 index:1 state:SUB
+Kp:3.50373 Ki:0 Kd:0.106742
+dKp:0.0643449 dKi:0 dKd:0.00238315
+Twiddle#: 143 index:2 state:ADD
+Kp:0.116791 Ki:0.0007332 Kd:0.545625
+dKp:0.00214483 dKi:1.57288e-05 dKd:0.0119157
+Twiddle#: 143 index:2 state:ADD
+Kp:3.50373 Ki:0 Kd:0.109125
+dKp:0.0643449 dKi:0 dKd:0.00238315
+Twiddle#: 144 index:2 state:SUB
+Kp:0.116791 Ki:0.0007332 Kd:0.521794
+dKp:0.00214483 dKi:1.57288e-05 dKd:0.0119157
+Twiddle#: 144 index:2 state:SUB
+Kp:3.50373 Ki:0 Kd:0.104359
+dKp:0.0643449 dKi:0 dKd:0.00238315
+Twiddle#: 145 index:0 state:ADD
+Kp:0.118936 Ki:0.0007332 Kd:0.533709
+dKp:0.00214483 dKi:1.57288e-05 dKd:0.0107242
+Twiddle#: 145 index:0 state:ADD
+Kp:3.56807 Ki:0 Kd:0.106742
+dKp:0.0643449 dKi:0 dKd:0.00214483
+Twiddle#: 146 index:0 state:SUB
+Kp:0.114646 Ki:0.0007332 Kd:0.533709
+dKp:0.00214483 dKi:1.57288e-05 dKd:0.0107242
+Twiddle#: 146 index:0 state:SUB
+Kp:3.43938 Ki:0 Kd:0.106742
+dKp:0.0643449 dKi:0 dKd:0.00214483
+Twiddle#: 147 index:1 state:ADD
+Kp:0.116791 Ki:0.000748929 Kd:0.533709
+dKp:0.00193035 dKi:1.57288e-05 dKd:0.0107242
+Twiddle#: 147 index:1 state:ADD
+Kp:3.50373 Ki:0 Kd:0.106742
+dKp:0.0579104 dKi:0 dKd:0.00214483
+Twiddle#: 148 index:1 state:SUB
+Kp:0.116791 Ki:0.000717471 Kd:0.533709
+dKp:0.00193035 dKi:1.57288e-05 dKd:0.0107242
+Twiddle#: 148 index:1 state:SUB
+Kp:3.50373 Ki:0 Kd:0.106742
+dKp:0.0579104 dKi:0 dKd:0.00214483
+Twiddle#: 149 index:2 state:ADD
+Kp:0.116791 Ki:0.0007332 Kd:0.544433
+dKp:0.00193035 dKi:1.41559e-05 dKd:0.0107242
+Twiddle#: 149 index:2 state:ADD
+Kp:3.50373 Ki:0 Kd:0.108887
+dKp:0.0579104 dKi:0 dKd:0.00214483
+Twiddle#: 150 index:2 state:SUB
+Kp:0.116791 Ki:0.0007332 Kd:0.522985
+dKp:0.00193035 dKi:1.41559e-05 dKd:0.0107242
+Twiddle#: 150 index:2 state:SUB
+Kp:3.50373 Ki:0 Kd:0.104597
+dKp:0.0579104 dKi:0 dKd:0.00214483
+Twiddle#: 151 index:0 state:ADD
+Kp:0.118721 Ki:0.0007332 Kd:0.533709
+dKp:0.00193035 dKi:1.41559e-05 dKd:0.00965174
+Twiddle#: 151 index:0 state:ADD
+Kp:3.56164 Ki:0 Kd:0.106742
+dKp:0.0579104 dKi:0 dKd:0.00193035
+Twiddle#: 152 index:0 state:SUB
+Kp:0.114861 Ki:0.0007332 Kd:0.533709
+dKp:0.00193035 dKi:1.41559e-05 dKd:0.00965174
+Twiddle#: 152 index:0 state:SUB
+Kp:3.44582 Ki:0 Kd:0.106742
+dKp:0.0579104 dKi:0 dKd:0.00193035
+Twiddle#: 153 index:1 state:ADD
+Kp:0.116791 Ki:0.000747356 Kd:0.533709
+dKp:0.00173731 dKi:1.41559e-05 dKd:0.00965174
+Twiddle#: 153 index:1 state:ADD
+Kp:3.50373 Ki:0 Kd:0.106742
+dKp:0.0521194 dKi:0 dKd:0.00193035
+Twiddle#: 154 index:1 state:SUB
+Kp:0.116791 Ki:0.000719044 Kd:0.533709
+dKp:0.00173731 dKi:1.41559e-05 dKd:0.00965174
+Twiddle#: 154 index:1 state:SUB
+Kp:3.50373 Ki:0 Kd:0.106742
+dKp:0.0521194 dKi:0 dKd:0.00193035
+Twiddle#: 155 index:2 state:ADD
+Kp:0.116791 Ki:0.0007332 Kd:0.543361
+dKp:0.00173731 dKi:1.27403e-05 dKd:0.00965174
+Twiddle#: 155 index:2 state:ADD
+Kp:3.50373 Ki:0 Kd:0.108672
+dKp:0.0521194 dKi:0 dKd:0.00193035
+Twiddle#: 156 index:2 state:SUB
+Kp:0.116791 Ki:0.0007332 Kd:0.524058
+dKp:0.00173731 dKi:1.27403e-05 dKd:0.00965174
+Twiddle#: 156 index:2 state:SUB
+Kp:3.50373 Ki:0 Kd:0.104812
+dKp:0.0521194 dKi:0 dKd:0.00193035
+Twiddle#: 157 index:0 state:ADD
+Kp:0.118528 Ki:0.0007332 Kd:0.533709
+dKp:0.00173731 dKi:1.27403e-05 dKd:0.00868657
+Twiddle#: 157 index:0 state:ADD
+Kp:3.55585 Ki:0 Kd:0.106742
+dKp:0.0521194 dKi:0 dKd:0.00173731
+Twiddle#: 158 index:0 state:SUB
+Kp:0.115054 Ki:0.0007332 Kd:0.533709
+dKp:0.00173731 dKi:1.27403e-05 dKd:0.00868657
+Twiddle#: 158 index:0 state:SUB
+Kp:3.45161 Ki:0 Kd:0.106742
+dKp:0.0521194 dKi:0 dKd:0.00173731
+Twiddle#: 159 index:1 state:ADD
+Kp:0.116791 Ki:0.00074594 Kd:0.533709
+dKp:0.00156358 dKi:1.27403e-05 dKd:0.00868657
+Twiddle#: 159 index:1 state:ADD
+Kp:3.50373 Ki:0 Kd:0.106742
+dKp:0.0469075 dKi:0 dKd:0.00173731
+Twiddle#: 160 index:1 state:SUB
+Kp:0.116791 Ki:0.00072046 Kd:0.533709
+dKp:0.00156358 dKi:1.27403e-05 dKd:0.00868657
+Twiddle#: 160 index:1 state:SUB
+Kp:3.50373 Ki:0 Kd:0.106742
+dKp:0.0469075 dKi:0 dKd:0.00173731
+Twiddle#: 161 index:2 state:ADD
+Kp:0.116791 Ki:0.0007332 Kd:0.542396
+dKp:0.00156358 dKi:1.14663e-05 dKd:0.00868657
+Twiddle#: 161 index:2 state:ADD
+Kp:3.50373 Ki:0 Kd:0.108479
+dKp:0.0469075 dKi:0 dKd:0.00173731
+Twiddle#: 162 index:2 state:SUB
+Kp:0.116791 Ki:0.0007332 Kd:0.525023
+dKp:0.00156358 dKi:1.14663e-05 dKd:0.00868657
+Twiddle#: 162 index:2 state:SUB
+Kp:3.50373 Ki:0 Kd:0.105005
+dKp:0.0469075 dKi:0 dKd:0.00173731
+Twiddle#: 163 index:0 state:ADD
+Kp:0.118355 Ki:0.0007332 Kd:0.533709
+dKp:0.00156358 dKi:1.14663e-05 dKd:0.00781791
+Twiddle#: 163 index:0 state:ADD
+Kp:3.55064 Ki:0 Kd:0.106742
+dKp:0.0469075 dKi:0 dKd:0.00156358
+Twiddle#: 164 index:0 state:SUB
+Kp:0.115227 Ki:0.0007332 Kd:0.533709
+dKp:0.00156358 dKi:1.14663e-05 dKd:0.00781791
+Twiddle#: 164 index:0 state:SUB
+Kp:3.45682 Ki:0 Kd:0.106742
+dKp:0.0469075 dKi:0 dKd:0.00156358
+Twiddle#: 165 index:1 state:ADD
+Kp:0.116791 Ki:0.000744666 Kd:0.533709
+dKp:0.00140722 dKi:1.14663e-05 dKd:0.00781791
+Twiddle#: 165 index:1 state:ADD
+Kp:3.50373 Ki:0 Kd:0.106742
+dKp:0.0422167 dKi:0 dKd:0.00156358
+Twiddle#: 166 index:1 state:SUB
+Kp:0.116791 Ki:0.000721734 Kd:0.533709
+dKp:0.00140722 dKi:1.14663e-05 dKd:0.00781791
+Twiddle#: 166 index:1 state:SUB
+Kp:3.50373 Ki:0 Kd:0.106742
+dKp:0.0422167 dKi:0 dKd:0.00156358
+Twiddle#: 167 index:2 state:ADD
+Kp:0.116791 Ki:0.0007332 Kd:0.541527
+dKp:0.00140722 dKi:1.03196e-05 dKd:0.00781791
+Twiddle#: 167 index:2 state:ADD
+Kp:3.50373 Ki:0 Kd:0.108305
+dKp:0.0422167 dKi:0 dKd:0.00156358
+Twiddle#: 168 index:2 state:SUB
+Kp:0.116791 Ki:0.0007332 Kd:0.525891
+dKp:0.00140722 dKi:1.03196e-05 dKd:0.00781791
+Twiddle#: 168 index:2 state:SUB
+Kp:3.50373 Ki:0 Kd:0.105178
+dKp:0.0422167 dKi:0 dKd:0.00156358
+Twiddle#: 169 index:0 state:ADD
+Kp:0.118198 Ki:0.0007332 Kd:0.533709
+dKp:0.00140722 dKi:1.03196e-05 dKd:0.00703612
+Twiddle#: 169 index:0 state:ADD
+Kp:3.54595 Ki:0 Kd:0.106742
+dKp:0.0422167 dKi:0 dKd:0.00140722
+Twiddle#: 170 index:0 state:SUB
+Kp:0.115384 Ki:0.0007332 Kd:0.533709
+dKp:0.00140722 dKi:1.03196e-05 dKd:0.00703612
+Twiddle#: 170 index:0 state:SUB
+Kp:3.46151 Ki:0 Kd:0.106742
+dKp:0.0422167 dKi:0 dKd:0.00140722
+Twiddle#: 171 index:1 state:ADD
+Kp:0.116791 Ki:0.00074352 Kd:0.533709
+dKp:0.0012665 dKi:1.03196e-05 dKd:0.00703612
+Twiddle#: 171 index:1 state:ADD
+Kp:3.50373 Ki:0 Kd:0.106742
+dKp:0.037995 dKi:0 dKd:0.00140722
+Twiddle#: 172 index:1 state:SUB
+Kp:0.116791 Ki:0.00072288 Kd:0.533709
+dKp:0.0012665 dKi:1.03196e-05 dKd:0.00703612
+Twiddle#: 172 index:1 state:SUB
+Kp:3.50373 Ki:0 Kd:0.106742
+dKp:0.037995 dKi:0 dKd:0.00140722
+Twiddle#: 173 index:2 state:ADD
+Kp:0.116791 Ki:0.0007332 Kd:0.540745
+dKp:0.0012665 dKi:9.28768e-06 dKd:0.00703612
+Twiddle#: 173 index:2 state:ADD
+Kp:3.50373 Ki:0 Kd:0.108149
+dKp:0.037995 dKi:0 dKd:0.00140722
+Twiddle#: 174 index:2 state:SUB
+Kp:0.116791 Ki:0.0007332 Kd:0.526673
+dKp:0.0012665 dKi:9.28768e-06 dKd:0.00703612
+Twiddle#: 174 index:2 state:SUB
+Kp:3.50373 Ki:0 Kd:0.105335
+dKp:0.037995 dKi:0 dKd:0.00140722
+Twiddle#: 175 index:0 state:ADD
+Kp:0.118057 Ki:0.0007332 Kd:0.533709
+dKp:0.0012665 dKi:9.28768e-06 dKd:0.00633251
+Twiddle#: 175 index:0 state:ADD
+Kp:3.54172 Ki:0 Kd:0.106742
+dKp:0.037995 dKi:0 dKd:0.0012665
+Twiddle#: 176 index:0 state:SUB
+Kp:0.115524 Ki:0.0007332 Kd:0.533709
+dKp:0.0012665 dKi:9.28768e-06 dKd:0.00633251
+Twiddle#: 176 index:0 state:SUB
+Kp:3.46573 Ki:0 Kd:0.106742
+dKp:0.037995 dKi:0 dKd:0.0012665
+Twiddle#: 177 index:1 state:ADD
+Kp:0.116791 Ki:0.000742488 Kd:0.533709
+dKp:0.00113985 dKi:9.28768e-06 dKd:0.00633251
+Twiddle#: 177 index:1 state:ADD
+Kp:3.50373 Ki:0 Kd:0.106742
+dKp:0.0341955 dKi:0 dKd:0.0012665
+Twiddle#: 178 index:1 state:SUB
+Kp:0.116791 Ki:0.000723912 Kd:0.533709
+dKp:0.00113985 dKi:9.28768e-06 dKd:0.00633251
+Twiddle#: 178 index:1 state:SUB
+Kp:3.50373 Ki:0 Kd:0.106742
+dKp:0.0341955 dKi:0 dKd:0.0012665
+Twiddle#: 179 index:2 state:ADD
+Kp:0.116791 Ki:0.0007332 Kd:0.540042
+dKp:0.00113985 dKi:8.35891e-06 dKd:0.00633251
+Twiddle#: 179 index:2 state:ADD
+Kp:3.50373 Ki:0 Kd:0.108008
+dKp:0.0341955 dKi:0 dKd:0.0012665
+Twiddle#: 180 index:2 state:SUB
+Kp:0.116791 Ki:0.0007332 Kd:0.527377
+dKp:0.00113985 dKi:8.35891e-06 dKd:0.00633251
+Twiddle#: 180 index:2 state:SUB
+Kp:3.50373 Ki:0 Kd:0.105475
+dKp:0.0341955 dKi:0 dKd:0.0012665
+Twiddle#: 181 index:0 state:ADD
+Kp:0.117931 Ki:0.0007332 Kd:0.533709
+dKp:0.00113985 dKi:8.35891e-06 dKd:0.00569926
+Twiddle#: 181 index:0 state:ADD
+Kp:3.53792 Ki:0 Kd:0.106742
+dKp:0.0341955 dKi:0 dKd:0.00113985
+Twiddle#: 182 index:0 state:SUB
+Kp:0.115651 Ki:0.0007332 Kd:0.533709
+dKp:0.00113985 dKi:8.35891e-06 dKd:0.00569926
+Twiddle#: 182 index:0 state:SUB
+Kp:3.46953 Ki:0 Kd:0.106742
+dKp:0.0341955 dKi:0 dKd:0.00113985
+Twiddle#: 183 index:1 state:ADD
+Kp:0.116791 Ki:0.000741559 Kd:0.533709
+dKp:0.00102587 dKi:8.35891e-06 dKd:0.00569926
+Twiddle#: 183 index:1 state:ADD
+Kp:3.50373 Ki:0 Kd:0.106742
+dKp:0.030776 dKi:0 dKd:0.00113985
+Twiddle#: 184 index:1 state:SUB
+Kp:0.116791 Ki:0.000724841 Kd:0.533709
+dKp:0.00102587 dKi:8.35891e-06 dKd:0.00569926
+Twiddle#: 184 index:1 state:SUB
+Kp:3.50373 Ki:0 Kd:0.106742
+dKp:0.030776 dKi:0 dKd:0.00113985
+Twiddle#: 185 index:2 state:ADD
+Kp:0.116791 Ki:0.0007332 Kd:0.539409
+dKp:0.00102587 dKi:7.52302e-06 dKd:0.00569926
+Twiddle#: 185 index:2 state:ADD
+Kp:3.50373 Ki:0 Kd:0.107882
+dKp:0.030776 dKi:0 dKd:0.00113985
+Twiddle#: 186 index:2 state:SUB
+Kp:0.116791 Ki:0.0007332 Kd:0.52801
+dKp:0.00102587 dKi:7.52302e-06 dKd:0.00569926
+Twiddle#: 186 index:2 state:SUB
+Kp:3.50373 Ki:0 Kd:0.105602
+dKp:0.030776 dKi:0 dKd:0.00113985
+Twiddle#: 187 index:0 state:ADD
+Kp:0.117817 Ki:0.0007332 Kd:0.533709
+dKp:0.00102587 dKi:7.52302e-06 dKd:0.00512933
+Twiddle#: 187 index:0 state:ADD
+Kp:3.53451 Ki:0 Kd:0.106742
+dKp:0.030776 dKi:0 dKd:0.00102587
+Twiddle#: 188 index:0 state:SUB
+Kp:0.115765 Ki:0.0007332 Kd:0.533709
+dKp:0.00102587 dKi:7.52302e-06 dKd:0.00512933
+Twiddle#: 188 index:0 state:SUB
+Kp:3.47295 Ki:0 Kd:0.106742
+dKp:0.030776 dKi:0 dKd:0.00102587
+Twiddle#: 189 index:1 state:ADD
+Kp:0.116791 Ki:0.000740723 Kd:0.533709
+dKp:0.000923279 dKi:7.52302e-06 dKd:0.00512933
+Reached threshold. sum_dK:0.0287242 thresh:0.031
+Best coefficients
+Kp:3.50373 Ki:0 Kd:0.106742
+Twiddle#: 190 index:1 state:SUB
+Kp:0.116791 Ki:0.000725677 Kd:0.533709
+dKp:0.000923279 dKi:7.52302e-06 dKd:0.00512933
+Twiddle#: 191 index:2 state:ADD
+Kp:0.116791 Ki:0.0007332 Kd:0.538839
+dKp:0.000923279 dKi:6.77072e-06 dKd:0.00512933
+Twiddle#: 192 index:2 state:SUB
+Kp:0.116791 Ki:0.0007332 Kd:0.52858
+dKp:0.000923279 dKi:6.77072e-06 dKd:0.00512933
+Reached threshold. sum_dK:0.00554645 thresh:0.006006
+Best coefficients
+Kp:0.116791 Ki:0.0007332 Kd:0.533709
+
+

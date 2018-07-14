@@ -21,6 +21,11 @@ class PID {
   void Init(double Kp, double Ki, double Kd);
 
   /*
+   * Initialize PID optimizer.
+   */
+  void InitOptimizer(double dKp, double dKi, double dKd, double threshold);
+
+  /*
    * Update the PID error variables given cross track error.
    */
   void UpdateError(double cte);
@@ -62,10 +67,11 @@ class PID {
   int n_twiddles;
   int index;
 
-  // The UpdateError() was called about 640 times for one lap.
-  // Make sure we consider error over at least 2 laps for each twiddle.
-  static const int N_RUNS_PER_TWIDDLE = 1280;
-
+  // The UpdateError() gets called about 640 times for one lap.
+  // Make sure we let algorithm to settle for one lap.
+  static const int N_RUNS_TO_EVAL = 640;
+  // Make sure we evaluate each twiddle over for atleast one lap.
+  static const int N_RUNS_TO_SETTLE = 640;
   /*
    * Optimize co-efficients using twiddle.
    */

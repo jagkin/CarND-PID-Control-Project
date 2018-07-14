@@ -46,6 +46,25 @@ PID::~PID() {
 }
 
 /*
+ * Initializes the PID controller optimizer.
+ * param [in] dKp: Proportional gain range.
+ * param [in] dKi: Integral gain range.
+ * param [in] dKd: Differential gain range.
+ *
+ */
+void PID::InitOptimizer(double dKp, double dKi, double dKd, double threshold) {
+  dK[0] = dKp;
+  dK[1] = dKi;
+  dK[2] = dKd;
+  thresh = threshold;
+  double sum_dk = dK[0] + dK[1] + dK[2];
+  if ((sum_dk == 0) || (sum_dk < thresh)) {
+    twid_state = ALL_DONE;
+    cout << "Optimizer is disabled.\n";
+  }
+
+}
+/*
  * Initializes the PID controller.
  * param [in] Kp: Initial Proportional gain.
  * param [in] Ki: Initial Integral gain.
@@ -94,7 +113,7 @@ void PID::LogTwiddle(void) {
   } else if (twid_state == SUB_TRIED) {
     state = "SUB";
   }
-  cout << "Twiddle: " << n_twiddles << " state: " << state;
+  cout << "Twiddle#: " << n_twiddles << " index:" << index << " state:" << state  << endl;
   cout << "Kp:" << K[0] << " Ki:" << K[1] << " Kd:" << K[2] << endl;
   cout << "dKp:" << dK[0] << " dKi:" << dK[1] << " dKd:" << dK[2] << endl;
 }
@@ -109,15 +128,21 @@ void PID::Optimizer(double cte) {
     return;
   }
 
-  // Sum absolute error over N_RUNS_PER_TWIDDLE runs.
-  cur_error_sum += fabs(cte);
-  if (n_runs_since_twiddle++ < N_RUNS_PER_TWIDDLE) {
+  if (n_runs_since_twiddle++ < N_RUNS_TO_SETTLE) {
     // Nothing to do yet.
     return;
   }
 
+  // Sum absolute error over N_RUNS_PER_TWIDDLE runs.
+  cur_error_sum += fabs(cte);
+
+  if (n_runs_since_twiddle++ < (N_RUNS_TO_SETTLE + N_RUNS_TO_EVAL)) {
+    // Nothing more to do for now.
+    return;
+  }
+
   // Average the error.
-  double cur_error = cur_error_sum / N_RUNS_PER_TWIDDLE;
+  double cur_error = cur_error_sum / N_RUNS_TO_EVAL;
 
   // Go twiddle
   n_twiddles++;
@@ -129,6 +154,7 @@ void PID::Optimizer(double cte) {
   if (n_twiddles == 1) {
     // cur_error is the error with init params.
     best_error = cur_error;
+    bestK = K;
 
     cout << "Optimizer: Twiddling start\n cur_error:" << cur_error << endl;
 
@@ -207,6 +233,7 @@ void PID::Optimizer(double cte) {
     cout << "Best coefficients\n";
     cout << "Kp:" << bestK[0] << " Ki:" << bestK[1] << " Kd:" << bestK[2]
          << endl;
+    K = bestK;
     twid_state = ALL_DONE;
     return;
   }

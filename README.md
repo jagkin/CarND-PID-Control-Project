@@ -1,5 +1,42 @@
-# CarND-Controls-PID
-Self-Driving Car Engineer Nanodegree Program
+This is my submission for Project 4 of Term2 of Udacity's Self-Driving Car Engineer Nanodegree Program.
+Here the objective is to implement the PID (Proportional Integral and Differential) controller to control the steering angle and throttle of a car given its cross track error (distance of the vehicles current postion from the desired center of the lane).
+
+## Rubrik points
+### Your code should compile.
+The code can be compiled without error using cmake and make.
+
+jagkin@jagkin-Inspiron-N5050:~/Projects/Udacity_ND/CarND-PID-Control-Project/build$ make clean && make
+[ 33%] Building CXX object CMakeFiles/pid.dir/src/PID.cpp.o
+/home/jagkin/Projects/Udacity_ND/CarND-PID-Control-Project/src/PID.cpp: In member function ‘void PID::Optimizer(double)’:
+/home/jagkin/Projects/Udacity_ND/CarND-PID-Control-Project/src/PID.cpp:218:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (index == (dK.size() - 1))
+               ^
+[ 66%] Building CXX object CMakeFiles/pid.dir/src/main.cpp.o
+/home/jagkin/Projects/Udacity_ND/CarND-PID-Control-Project/src/main.cpp: In lambda function:
+/home/jagkin/Projects/Udacity_ND/CarND-PID-Control-Project/src/main.cpp:98:18: warning: unused variable ‘angle’ [-Wunused-variable]
+           double angle = std::stod(j[1]["steering_angle"].get<std::string>());
+                  ^
+[100%] Linking CXX executable pid
+[100%] Built target pid
+
+### The PID procedure follows what was taught in the lessons.
+The controller and optimizer (using twiddle) implementation in src/PID.cpp follows the procedure taught in lessons.
+
+### Describe the effect each of the P, I, D components had in your implementation.
+#### Effect of P
+Of the three coefficients P is probably the most important, it controls the immediate response to the current error observed. Increasing it makes the controller responsive but has the side effect of making it unstable (to overshoot beyond the center line).
+#### Effect of I
+It was (and is) difficult to see the exact effect of I component. For steering angle, the sum of ctes over time probably converges to some non-zero value and I component probably helps to drive that value to 0 by nudging the controller response. For throttle controller the absolute CTE was fed as input so the sum of errors will only increase indefinitely, for this reason I component was not used for throttle controller.
+#### Effect of D
+D component helps prevent the overshoot caused by very high P component. Setting it to high value makes the system a bit slow to respond in case of sudden increase in error for example around the corners.
+
+### Describe how the final hyperparameters were chosen.
+#### Steering angle controller
+Initial values for Kp, Ki and Kd were set based on trial and error by keepig other coefficients constants.
+I started with Kp  +0.5 (and Ki = Kd = 0) as the simulator starts with vehicle on slightly right of the center and needs to be moved to left. But the car then steered too hard to the left, I then decreased it till 0.1 when car seemed to stay in the lane but was oscillating a lot eventually going off the track.
+I then held Kp at 0.1 and played around with Kd to counter the effect of Kp and arrived at Kd = 0.5 to keep the car on the track for one lap. I then played around with Ki (starting with 0.1 and then 0.01 and the 0.0001 and then 0.0005 and finally 0.0006) and chose the value which seemed to keep the car around the center most f the time.
+
+#### Steering angle controller
 
 ---
 
